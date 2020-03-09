@@ -8,6 +8,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 const store = createStore(rootReducer);
+
+store.subscribe(() => {
+  localStorage.setItem('TodoState', JSON.stringify(store.getState()))
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

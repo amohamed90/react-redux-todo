@@ -1,5 +1,7 @@
+const local = JSON.parse(localStorage.getItem("TodoState"));
+
 const DEFAULT_STATE = {
-  todos: []
+  todos: local.todos ? local.todos : []
 };
 
 function rootReducer(state = DEFAULT_STATE, action) {
